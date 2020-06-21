@@ -1,0 +1,222 @@
+﻿<Page x:Class="Getreport.Admin.AddClient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Getreport.Admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="1600" d:DesignWidth="800"
+      Title="AddClient" Background="#FF303A52">
+
+    <ScrollViewer>
+        <Grid>
+            <Border x:Name="loading" Panel.ZIndex="1" Background="White" Opacity=".5" Visibility="Collapsed">
+                <TextBlock Margin="0 0 0 250" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="120" Text="Загрузка..."/>
+            </Border>
+            
+            <Grid HorizontalAlignment="Center" Width="500">
+            <StackPanel x:Name="mainStack">
+                <TextBlock HorizontalAlignment="Center" Margin="0,22,0,0" TextWrapping="Wrap" Text="GETREPORT" VerticalAlignment="Top" FontSize="45" Foreground="#FFDBDBDB" FontWeight="Medium"/>
+                <Grid Margin="0 20 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" HorizontalAlignment="Stretch">
+                        <Image x:Name="image" Source="../img/profile-icon.jpg" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center" Height="173"/>
+                        <Button x:Name="loadPhoto" Height="40" Background="#FF823F72" FontSize="18" Foreground="White" Padding="0" Margin="0 15 0 0" Content="Загрузить" Style="{StaticResource btnFillTemplate2}" HorizontalAlignment="Left" Width="150" Click="loadPhoto_Click"/>
+                    </StackPanel>
+                    <StackPanel x:Name="fioFields" Grid.Column="1" Margin="15 0 0 0">
+                        <TextBlock HorizontalAlignment="Left" Margin="1,0,0,0" TextWrapping="Wrap" Text="ИМЯ" VerticalAlignment="Top" FontSize="17" Foreground="#FFDBDBDB"/>
+                        <TextBox x:Name="firstBox" Margin="0,5,0,0" VerticalAlignment="Top" Style="{StaticResource textBoxMain}" TextChanged="firstBox_TextChanged"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="1,10,0,0" TextWrapping="Wrap" Text="ФАМИЛИЯ" VerticalAlignment="Top" FontSize="17" Foreground="#FFDBDBDB"/>
+                        <TextBox x:Name="secondBox" Margin="0,5,0,0" VerticalAlignment="Top" Style="{StaticResource textBoxMain}"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="1,10,0,0" TextWrapping="Wrap" Text="ОТЧЕСТВО" VerticalAlignment="Top" FontSize="17" Foreground="#FFDBDBDB"/>
+                        <TextBox x:Name="thirdBox" Margin="0,5,0,0" VerticalAlignment="Top" Style="{StaticResource textBoxMain}"/>
+                    </StackPanel>
+                    <TextBlock x:Name="imageIcon" Margin="27 18 0 55" Foreground="#FF303A52" FontSize="130" Text="" FontFamily="/Getreport;component/fonts/#Font Awesome 5 Free Solid"/>
+                </Grid>
+                <TextBlock HorizontalAlignment="Left" Margin="1,10,0,0" TextWrapping="Wrap" Text="АДРЕС" VerticalAlignment="Top" FontSize="17" Foreground="#FFDBDBDB"/>
+                <TextBox x:Name="addressBox" Margin="0,5,0,0" VerticalAlignment="Top" Style="{StaticResource textBoxMain}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="1,10,0,0" TextWrapping="Wrap" Text="ТЕЛЕФОН" VerticalAlignment="Top" FontSize="17" Foreground="#FFDBDBDB"/>
+                <TextBox x:Name="phoneBox" Margin="0,5,0,0" VerticalAlignment="Top" Style="{StaticResource textBoxMain}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="1,10,0,0" TextWrapping="Wrap" Text="ДАТА" VerticalAlignment="Top" FontSize="17" Foreground="#FFDBDBDB"/>
+                <TextBox x:Name="dateBox" Margin="0,5,0,0" VerticalAlignment="Top" Style="{StaticResource textBoxMain}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="1,10,0,0" TextWrapping="Wrap" Text="ЛИЦЕВОЙ СЧЁТ" VerticalAlignment="Top" FontSize="17" Foreground="#FFDBDBDB"/>
+                <TextBox x:Name="personalAccountBox" Margin="0,5,0,0" VerticalAlignment="Top" Style="{StaticResource textBoxMain}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="1,10,0,0" TextWrapping="Wrap" Text="ИДЕНТИФИКАЦИОННЫЙ НОМЕР" VerticalAlignment="Top" FontSize="17" Foreground="#FFDBDBDB"/>
+                <TextBox x:Name="personalIdBox" Margin="0,5,0,0" VerticalAlignment="Top" Style="{StaticResource textBoxMain}"/>
+                <DockPanel Margin="0,20,0,0">
+                    <Button IsEnabled="False" x:Name="btn_back" Style="{StaticResource btnLittle}" DockPanel.Dock="Left" Click="btn_back_Click">
+                        <Image Source="../img/arrow-back.png" Height="18"/>
+                    </Button>
+                    <Button x:Name="btn_front" Style="{StaticResource btnLittle}" DockPanel.Dock="Right" Click="btn_front_Click">
+                        <Image Source="../img/arrow-front.png" Height="18"/>
+                    </Button>
+                    <Grid x:Name="gridBtn">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button IsEnabled="False" Background="#823F72" x:Name="btn1" Content="СЕН" HorizontalAlignment="Stretch" Grid.Column="0" Style="{StaticResource btnInPanel}" Height="44" Margin="0,0,0.4,0" VerticalAlignment="Bottom" Click="btn1_Click"/>
+                        <Button x:Name="btn2" Content="СЕН" HorizontalAlignment="Stretch" Grid.Column="1" Style="{StaticResource btnInPanel}" Click="btn2_Click"/>
+                        <Button x:Name="btn3" Content="СЕН" HorizontalAlignment="Stretch" Grid.Column="2" Style="{StaticResource btnInPanel}" Click="btn3_Click"/>
+                        <Button x:Name="btn4" Content="СЕН" HorizontalAlignment="Stretch" Grid.Column="3" Style="{StaticResource btnInPanel}" Click="btn4_Click"/>
+                        <Button x:Name="btn5" Content="СЕН" HorizontalAlignment="Stretch" Grid.Column="4" Style="{StaticResource btnInPanel}" Click="btn5_Click"/>
+                        <Button x:Name="btn6" Content="СЕН" HorizontalAlignment="Stretch" Grid.Column="5" Style="{StaticResource btnInPanel}" Click="btn6_Click"/>
+                    </Grid>
+                </DockPanel>
+                <Grid Background="#823F72">
+                    <Grid Width="450" HorizontalAlignment="Center">
+                        <StackPanel>
+                            <StackPanel Margin="0 15 0 0" Orientation="Horizontal">
+                                <TextBlock Foreground="#FFDBDBDB" Text="Оплачено" FontSize="20"/>
+                                <CheckBox x:Name="toggleStatus" Cursor="Hand" Margin="15 0 0 0" IsChecked="False" Style="{StaticResource CheckBoxStyle1}" Click="toggleStatus_Click"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 15 0 0" Orientation="Horizontal">
+                                <TextBlock VerticalAlignment="Center" Foreground="#FFDBDBDB" Text="Льгота" FontSize="20"/>
+                                <Grid Margin="15 0 0 0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="0" Foreground="#FFDBDBDB" FontSize="15" Margin="5.5 0 0 0"/>
+                                        <TextBlock Text="20" Foreground="#FFDBDBDB" FontSize="15" Margin="49 0 0 0"/>
+                                        <TextBlock Text="40" Foreground="#FFDBDBDB" FontSize="15" Margin="44 0 0 0"/>
+                                        <TextBlock Text="60" Foreground="#FFDBDBDB" FontSize="15" Margin="45 0 0 0"/>
+                                        <TextBlock Text="80" Foreground="#FFDBDBDB" FontSize="15" Margin="46 0 0 0"/>
+                                        <TextBlock Text="100" Foreground="#FFDBDBDB" FontSize="15" Margin="39 0 0 0"/>
+                                    </StackPanel>
+                                    <Rectangle Grid.Row="1" Width="310" Height="5" Fill="#303A52"/>
+                                    <StackPanel x:Name="radios" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom">
+                                        <RadioButton x:Name="radio1" IsChecked="True" Style="{DynamicResource RadioButtonStyle1}"/>
+                                        <RadioButton x:Name="radio2" Style="{DynamicResource RadioButtonStyle1}" Margin="40 0 0 0"/>
+                                        <RadioButton x:Name="radio3" Style="{DynamicResource RadioButtonStyle1}" Margin="40 0 0 0"/>
+                                        <RadioButton x:Name="radio4" Style="{DynamicResource RadioButtonStyle1}" Margin="40 0 0 0"/>
+                                        <RadioButton x:Name="radio5" Style="{DynamicResource RadioButtonStyle1}" Margin="40 0 0 0"/>
+                                        <RadioButton x:Name="radio6" Style="{DynamicResource RadioButtonStyle1}" Margin="40 0 0 0"/>
+                                    </StackPanel>
+                                    
+                                </Grid>
+                                <TextBlock Margin="25 0 0 0" VerticalAlignment="Bottom" Text="%" Foreground="#FFDBDBDB" FontSize="18"/>
+                            </StackPanel>
+                            <Grid x:Name="gridServ">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock x:Name="serv1" VerticalAlignment="Center" Margin="0 15 0 0" Grid.Row="0" Foreground="#FFDBDBDB" Text="Тех. обслуживание" FontSize="20" Grid.Column="0"/>
+                                <TextBlock x:Name="serv2" VerticalAlignment="Center" Margin="0 15 0 0" Grid.Row="1" Foreground="#FFDBDBDB" Text="Капитальный ремонт" FontSize="20" Grid.Column="0"/>
+                                <TextBlock x:Name="serv3" VerticalAlignment="Center" Margin="0 15 0 0" Grid.Row="2" Foreground="#FFDBDBDB" Text="Теплоснабжение" FontSize="20" Grid.Column="0"/>
+                                <TextBlock x:Name="serv4" VerticalAlignment="Center" Margin="0 15 0 0" Grid.Row="3" Foreground="#FFDBDBDB" Text="Горячее водоснабжение" FontSize="20" Grid.Column="0"/>
+                                <TextBlock x:Name="serv5" VerticalAlignment="Center" Margin="0 15 0 0" Grid.Row="4" Foreground="#FFDBDBDB" Text="Холодное водоснабжение" FontSize="20" Grid.Column="0"/>
+                                <TextBlock x:Name="serv6" VerticalAlignment="Center" Margin="0 15 0 0" Grid.Row="5" Foreground="#FFDBDBDB" Text="Газоснабжение" FontSize="20" Grid.Column="0"/>
+                                <TextBlock x:Name="serv7" VerticalAlignment="Center" Margin="0 15 0 0" Grid.Row="6" Foreground="#FFDBDBDB" Text="Тех. обслуживание лифта" FontSize="20" Grid.Column="0"/>
+                                <TextBlock x:Name="serv8" VerticalAlignment="Center" Margin="0 15 0 0" Grid.Row="7" Foreground="#FFDBDBDB" Text="Электроэнергия" FontSize="20" Grid.Column="0"/>
+                                <TextBlock x:Name="serv9" VerticalAlignment="Center" Margin="0 15 0 0" Grid.Row="8" Foreground="#FFDBDBDB" Text="Работа лифтов" FontSize="20" Grid.Column="0"/>
+                                <TextBlock x:Name="serv10" VerticalAlignment="Center" Margin="0 15 0 15" Grid.Row="9" Foreground="#FFDBDBDB" Text="Отходы" FontSize="20" Grid.Column="0"/>
+                                <TextBox x:Name="field1" Margin="0 15 0 0" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Style="{StaticResource textBoxCircle}" TextChanged="field1_TextChanged"/>
+                                <TextBox x:Name="field2" Margin="0 15 0 0" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Style="{StaticResource textBoxCircle}"/>
+                                <TextBox x:Name="field3" Margin="0 15 0 0" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Style="{StaticResource textBoxCircle}"/>
+                                <TextBox x:Name="field4" Margin="0 15 0 0" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Style="{StaticResource textBoxCircle}"/>
+                                <TextBox x:Name="field5" Margin="0 15 0 0" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Style="{StaticResource textBoxCircle}"/>
+                                <TextBox x:Name="field6" Margin="0 15 0 0" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Style="{StaticResource textBoxCircle}"/>
+                                <TextBox x:Name="field7" Margin="0 15 0 0" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Style="{StaticResource textBoxCircle}"/>
+                                <TextBox x:Name="field8" Margin="0 15 0 0" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Style="{StaticResource textBoxCircle}"/>
+                                <TextBox x:Name="field9" Margin="0 15 0 0" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Style="{StaticResource textBoxCircle}"/>
+                                <TextBox x:Name="field10" Margin="0 15 0 15" Grid.Column="1" Grid.Row="9" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Style="{StaticResource textBoxCircle}"/>
+                                <WrapPanel HorizontalAlignment="Right" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Margin="22 15 0 0">
+                                    <TextBlock VerticalAlignment="Center" Text="М" Foreground="#FFDBDBDB" FontSize="18"/>
+                                    <TextBlock Margin="0 0 0 14" Text="2" Foreground="#FFDBDBDB" FontSize="10" VerticalAlignment="Top" Width="8"/>
+                                </WrapPanel>
+                                <WrapPanel HorizontalAlignment="Right" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="10 15 0 0">
+                                    <TextBlock VerticalAlignment="Center" Text="М" Foreground="#FFDBDBDB" FontSize="18"/>
+                                    <TextBlock Margin="0 0 0 14" Text="2" Foreground="#FFDBDBDB" FontSize="10" VerticalAlignment="Top" Width="8"/>
+                                </WrapPanel>
+                                <WrapPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Margin="10 15 0 0">
+                                    <TextBlock VerticalAlignment="Center" Text="Гкал" Foreground="#FFDBDBDB" FontSize="18"/>
+                                </WrapPanel>
+                                <WrapPanel Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Margin="10 15 0 0">
+                                    <TextBlock VerticalAlignment="Center" Text="Гкал" Foreground="#FFDBDBDB" FontSize="18"/>
+                                </WrapPanel>
+                                <WrapPanel HorizontalAlignment="Right" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" Margin="10 15 0 0">
+                                    <TextBlock VerticalAlignment="Center" Text="М" Foreground="#FFDBDBDB" FontSize="18"/>
+                                    <TextBlock Margin="0 0 0 14" Text="3" Foreground="#FFDBDBDB" FontSize="10" VerticalAlignment="Top" Width="8"/>
+                                </WrapPanel>
+                                <WrapPanel HorizontalAlignment="Right" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" Margin="10 15 0 0">
+                                    <TextBlock VerticalAlignment="Center" Text="Чел" Foreground="#FFDBDBDB" FontSize="18"/>
+                                </WrapPanel>
+                                <WrapPanel HorizontalAlignment="Right" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" Margin="10 15 0 0">
+                                    <TextBlock VerticalAlignment="Center" Text="Чел" Foreground="#FFDBDBDB" FontSize="18"/>
+                                </WrapPanel>
+                                <WrapPanel HorizontalAlignment="Right" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" Margin="10 15 0 0">
+                                    <TextBlock VerticalAlignment="Center" Text="Чел" Foreground="#FFDBDBDB" FontSize="18"/>
+                                </WrapPanel>
+                                <WrapPanel HorizontalAlignment="Right" Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" Margin="10 15 0 0">
+                                    <TextBlock VerticalAlignment="Center" Text="Чел" Foreground="#FFDBDBDB" FontSize="18"/>
+                                </WrapPanel>
+                                <WrapPanel HorizontalAlignment="Right" Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" Margin="10 15 0 15">
+                                    <TextBlock VerticalAlignment="Center" Text="М" Foreground="#FFDBDBDB" FontSize="18"/>
+                                    <TextBlock Margin="0 0 0 14" Text="3" Foreground="#FFDBDBDB" FontSize="10" VerticalAlignment="Top" Width="8"/>
+                                </WrapPanel>
+                            </Grid>
+                            <Border x:Name="errorIncorrectSymbols" Margin="0,10,0,15" HorizontalAlignment="Left" BorderBrush="#FFDC1F1F" BorderThickness="0,2" Width="auto" Visibility="Collapsed">
+                                <TextBlock Text="* Введенны некорректные символы" Margin="10 5" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFD8DBDB" TextAlignment="Justify" FontSize="13.5" Visibility="Visible"/>
+                            </Border>
+                            
+                            <Grid Margin="0 10 0 20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Button IsEnabled="False" x:Name="btnComplite" Background="#303A52" Foreground="White" Padding="32 12" FontSize="14" Grid.Column="2" HorizontalAlignment="Right" Content="Применить" Style="{StaticResource btnFillTemplate}" Click="btnComplite_Click"/>
+                                <Button x:Name="btnDeleteReport" Background="#303A52" Foreground="White" Padding="15 0" Margin="0 0 10 0" FontSize="14" Grid.Column="1" HorizontalAlignment="Right" Style="{StaticResource btnFillTemplate}" Click="btnDeleteReport_Click">
+                                    <Image Source="../img/cross.png" Width="18"/>
+                                </Button>
+                                <ComboBox ItemContainerStyle="{DynamicResource customList2}" x:Name="comboboxDate" HorizontalAlignment="Left" Width="120" Style="{StaticResource ComboBoxFlatStyle}" SelectionChanged="comboboxDate_SelectionChanged">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Margin="15, 8, 10, 8" FontSize="18" Foreground="White" Text="{Binding}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                            </Grid>
+                            
+                        </StackPanel>
+
+                    </Grid>
+                </Grid>
+                
+                <TextBlock x:Name="errorPhone" Text="* Номер телефона не соответствует формату +XXX XXX XXX-XX-XX" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFA4848" TextAlignment="Justify" FontSize="13.5" Visibility="Collapsed"/>
+                <TextBlock x:Name="errorDate" Text="* Дата рождения не соответствует формату DD.MM.YYYY или неверно введена" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFA4848" TextAlignment="Justify" FontSize="13.5" Visibility="Collapsed"/>
+                <TextBlock x:Name="errorSameId" Text="* Клиент с таким идентификационным номером уже существует" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFA4848" TextAlignment="Justify" FontSize="13.5" Visibility="Collapsed"/>
+                <TextBlock x:Name="errorFIO" Text="* ФИО должны состоять из символов кириллицы и без цифр" Margin="0,20,0,20" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFA4848" TextAlignment="Justify" FontSize="13.5" Visibility="Collapsed"/>
+                <Grid Margin="1,20,0,50">
+                    <Button x:Name="btnBack" Content="Назад" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Top" Style="{StaticResource btnEmpty}"/>
+                    <Button IsEnabled="False" x:Name="btnAdd" Content="Добавить" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Style="{StaticResource btnFill}" Click="btnAdd_Click"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        </Grid>
+    </ScrollViewer>
+
+</Page>

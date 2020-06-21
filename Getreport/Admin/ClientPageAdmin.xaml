@@ -1,0 +1,64 @@
+﻿<Page x:Class="Getreport.Admin.ClientPageAdmin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Getreport.Admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="1000" d:DesignWidth="800"
+      Title="clientPAge" Background="#FF303A52">
+
+    <ScrollViewer>
+        <Grid>
+            <Border x:Name="loading" Panel.ZIndex="1" Background="White" Opacity=".5" Visibility="Collapsed">
+                <TextBlock Margin="0 0 0 250" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="120" Text="Загрузка..."/>
+            </Border>
+
+            <Grid HorizontalAlignment="Center" Width="500">
+                <StackPanel x:Name="mainStack">
+                    <TextBlock HorizontalAlignment="Center" Margin="0,22,0,0" TextWrapping="Wrap" Text="GETREPORT" VerticalAlignment="Top" FontSize="45" Foreground="#FFDBDBDB" FontWeight="Medium"/>
+                    <Grid Margin="0 20 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" HorizontalAlignment="Stretch">
+                            <Image x:Name="image" Source="../img/tom.jpg" VerticalAlignment="Top" HorizontalAlignment="Center" Height="230" Stretch="UniformToFill"/>
+                            <Button x:Name="loadPhoto" Height="40" Background="#FF823F72" FontSize="18" Foreground="White" Padding="0" Margin="0 15 0 0" Content="Загрузить" Style="{StaticResource btnFillTemplate2}" HorizontalAlignment="Left" Width="150" Visibility="Collapsed"/>
+                        </StackPanel>
+                        <StackPanel x:Name="fioFields" Grid.Column="1" Margin="25 0 0 0">
+                            <TextBlock HorizontalAlignment="Left" Margin="1,0,0,0" TextWrapping="Wrap" Text="ИМЯ" VerticalAlignment="Top" FontSize="17" Foreground="#C683B6"/>
+                            <TextBlock x:Name="firstBlock" HorizontalAlignment="Stretch" Margin="-1,-10,0,0" TextWrapping="Wrap" Text="Константин" VerticalAlignment="Top" FontSize="40" Foreground="#FFDBDBDB"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="1,0,0,0" TextWrapping="Wrap" Text="ФАМИЛИЯ" VerticalAlignment="Top" FontSize="17" Foreground="#C683B6"/>
+                            <TextBlock x:Name="secondBlock" HorizontalAlignment="Stretch" Margin="-1,-10,0,0" TextWrapping="Wrap" Text="Мындра" VerticalAlignment="Top" FontSize="40" Foreground="#FFDBDBDB"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="1,0,0,0" TextWrapping="Wrap" Text="ОТЧЕСТВО" VerticalAlignment="Top" FontSize="17" Foreground="#C683B6"/>
+                            <TextBlock x:Name="thirdBlock" HorizontalAlignment="Stretch" Margin="-1,-10,0,0" TextWrapping="Wrap" Text="Сергеевич" VerticalAlignment="Top" FontSize="40" Foreground="#FFDBDBDB"/>
+                        </StackPanel>
+                    </Grid>
+                    <TextBlock HorizontalAlignment="Left" Margin="1,10,0,0" TextWrapping="Wrap" Text="АДРЕС" VerticalAlignment="Top" FontSize="17" Foreground="#C683B6"/>
+                    <TextBlock x:Name="addressBlock" HorizontalAlignment="Stretch" Margin="0,-5,0,0" TextWrapping="Wrap" Text="ул. Пушкина, дом. Калатушкина 90" VerticalAlignment="Top" FontSize="30" Foreground="#FFDBDBDB"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="1,10,0,0" TextWrapping="Wrap" Text="ТЕЛЕФОН" VerticalAlignment="Top" FontSize="17" Foreground="#C683B6"/>
+                    <TextBlock x:Name="phoneBlock" HorizontalAlignment="Stretch" Margin="0,-5,0,0" TextWrapping="Wrap" Text="+375 029 123-32-32" VerticalAlignment="Top" FontSize="30" Foreground="#FFDBDBDB"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="1,10,0,0" TextWrapping="Wrap" Text="ДАТА" VerticalAlignment="Top" FontSize="17" Foreground="#C683B6"/>
+                    <TextBlock x:Name="dateBlock" HorizontalAlignment="Stretch" Margin="0,-5,0,0" TextWrapping="Wrap" Text="29.06.2011" VerticalAlignment="Top" FontSize="30" Foreground="#FFDBDBDB"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="1,10,0,0" TextWrapping="Wrap" Text="ЛИЦЕВОЙ СЧЁТ" VerticalAlignment="Top" FontSize="17" Foreground="#C683B6"/>
+                    <TextBlock x:Name="personalAccountBlock" HorizontalAlignment="Stretch" Margin="0,-5,0,0" TextWrapping="Wrap" Text="NSKNJ12JJ213S" VerticalAlignment="Top" FontSize="30" Foreground="#FFDBDBDB"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="1,10,0,0" TextWrapping="Wrap" Text="ИДЕНТИФИКАЦИОННЫЙ НОМЕР" VerticalAlignment="Top" FontSize="17" Foreground="#C683B6"/>
+                    <TextBlock x:Name="personaIdBlock" HorizontalAlignment="Stretch" Margin="0,-5,0,40" TextWrapping="Wrap" Text="ABUHUHUHQ21792139823B21" VerticalAlignment="Top" FontSize="30" Foreground="#FFDBDBDB"/>
+                    <!--<ComboBox Margin="0 20 0 0"  ItemContainerStyle="{DynamicResource customList3}" x:Name="comboboxDate" HorizontalAlignment="Left" Width="140" Style="{StaticResource ComboBoxFlatStyle2}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="20, 13, 20,  13" FontSize="18" Foreground="White" Text="{Binding}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <Grid Margin="1,20,0,50">
+                        <Button x:Name="btnBack" Content="Назад" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Top" Style="{StaticResource btnEmpty}"/>
+                        <Button IsEnabled="False" x:Name="btnAdd" Content="Добавить" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Style="{StaticResource btnFill}"/>
+                    </Grid>-->
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>
